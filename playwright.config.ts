@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { ENV } from './src/config/env.config';
 
 /**
  * Read environment variables from file.
@@ -25,7 +26,7 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: 'https://demo.realworld.show',
+    baseURL: 'ENV.UI_URL',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },

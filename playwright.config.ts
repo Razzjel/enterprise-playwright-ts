@@ -26,7 +26,7 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: 'ENV.UI_URL',
+    baseURL: ENV.UI_URL,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },

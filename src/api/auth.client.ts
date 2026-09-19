@@ -1,6 +1,6 @@
 import { APIRequestContext, expect } from "@playwright/test";
 import { UserData } from "../utils/user-factory";
-import { UserAuthReponse } from "./models/auth.models";
+import { LoginCredentials, UserAuthResponse } from "./models/auth.models";
 import { ENV } from "../config/env.config";
 
 export class AuthApiClient {
@@ -11,21 +11,34 @@ export class AuthApiClient {
     this.request = request;
   }
 
-  async registerUser(userData: UserData): Promise<UserAuthReponse> {
+  async registerUser(userData: UserData): Promise<UserAuthResponse> {
     const response = await this.request.post(`${this.baseUrl}/users`, {
       data: {
         user: {
-          username: userData.username,
-          email: userData.email,
-          password: userData.password,
+          username  : userData.username,
+          email     : userData.email,
+          password  : userData.password,
         },
       },
     });
-
     expect(response.ok()).toBeTruthy();
 
+    const body = (await response.json() as UserAuthResponse);
+    return body
+  }
 
-    const body = (await response.json() as UserAuthReponse);
-    return body;
+  async loginUser(credentials: LoginCredentials): Promise < UserAuthResponse > {
+    const response = await this.request.post(`${this.baseUrl}/users/login`, {
+      data: {
+        user: {
+          email     : credentials.email,
+          password  : credentials.password,
+        }
+      }
+    });
+    expect(response.ok()).toBeTruthy();
+
+    const body = (await response.json() as UserAuthResponse);
+    return body
   }
 }

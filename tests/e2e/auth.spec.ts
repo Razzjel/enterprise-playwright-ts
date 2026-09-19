@@ -1,4 +1,4 @@
-import { test, expect } from '../../src/fixtures/test.fixture'
+import { test, expect } from '../../src/fixtures/test.fixture';
 import { RegisterPage } from '../../src/pages/register.page';
 import { generateUser } from '../../src/utils/user-factory';
 

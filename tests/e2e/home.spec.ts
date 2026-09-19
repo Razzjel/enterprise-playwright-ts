@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { test, expect } from '@playwright/test';
 import { AuthApiClient } from '../../src/api/auth.client';
 import { generateUser } from '../../src/utils/user-factory';
 
@@ -8,15 +8,14 @@ test.describe('Home Page', () => {
 
     const authClient = new AuthApiClient(request);
     const authResponse = await authClient.registerUser(user);
-    const authToken = authResponse.user.token
+    const authToken = authResponse.user.token;
 
     await page.addInitScript((token) => {
       window.localStorage.setItem('jwtToken', token);
     }, authToken);
 
-    await page.goto('/')
+    await page.goto('/');
     await expect(page.getByRole('link', { name: user.username })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Your Feed' })).toBeVisible();
-
   });
 });

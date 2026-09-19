@@ -7,7 +7,7 @@ export interface UserData {
 }
 
 export const generateUser = (): UserData => ({
-  username: faker.string.alphanumeric({length: 10}),
-  email: faker.internet.email({provider: 'test-qa-local'}),
-  password: faker.internet.password({length: 12})
+  username: faker.string.alphanumeric({ length: 10 }),
+  email: faker.internet.email({ provider: 'test-qa-local' }),
+  password: faker.internet.password({ length: 12 }),
 });

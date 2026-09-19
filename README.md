@@ -37,17 +37,20 @@ tests/
 ## Quick Start
 
 1. **Install dependencies:**
+
    ```bash
    npm ci
    npx playwright install chromium
    ```
 
 2. **Run all tests:**
+
    ```bash
    npx playwright test
    ```
 
 3. **Run specific suites:**
+
    ```bash
    npx playwright test tests/e2e/     # UI tests
    npx playwright test tests/api/     # API tests

@@ -7,7 +7,7 @@ test.describe('User Factory - Unit Tests', () => {
 
     // Email
     expect(user.email).toBeDefined();
-    expect(user.email).toContain("@");
+    expect(user.email).toContain('@');
 
     // Password
     expect(user.password).toBeDefined();
@@ -17,8 +17,7 @@ test.describe('User Factory - Unit Tests', () => {
     expect(user.username).toBeDefined();
     expect(user.username).toHaveLength(10);
     expect(user.username).toMatch(/^[a-zA-Z0-9]+$/);
-
-  })
+  });
 
   test('should generate unique data on subsequent calls', () => {
     const user1 = generateUser();
@@ -26,5 +25,5 @@ test.describe('User Factory - Unit Tests', () => {
 
     expect(user1.username).not.toEqual(user2.username);
     expect(user1.email).not.toEqual(user2.email);
-  })
+  });
 });

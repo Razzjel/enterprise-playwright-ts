@@ -1,4 +1,4 @@
-import { Page, Locator, expect } from '@playwright/test'
+import { Page, Locator, expect } from '@playwright/test';
 import { UserData } from '../utils/user-factory';
 
 export class RegisterPage {
@@ -13,7 +13,7 @@ export class RegisterPage {
     this.usernameInput = page.getByPlaceholder('Username');
     this.emailInput = page.getByPlaceholder('Email');
     this.passwordInput = page.getByPlaceholder('Password');
-    this.form_submit = page.getByRole('button', { name: 'Sign up'});
+    this.form_submit = page.getByRole('button', { name: 'Sign up' });
   }
 
   async goto(): Promise<void> {

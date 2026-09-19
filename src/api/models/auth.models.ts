@@ -4,10 +4,10 @@ export interface UserAuthResponse {
     email: string;
     password: string;
     token: string;
-  }
+  };
 }
 
 export interface LoginCredentials {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }

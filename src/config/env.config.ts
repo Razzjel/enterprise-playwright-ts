@@ -5,9 +5,7 @@ const username = process.env.TEST_USER_USERNAME;
 const password = process.env.TEST_USER_PASSWORD;
 
 if (!email || !password || !username) {
-  throw new Error(
-    'Missing TEST_USER_EMAIL, TEST_USER_USERNAME or TEST_USER_PASSWORD in .env',
-  );
+  throw new Error('Missing TEST_USER_EMAIL, TEST_USER_USERNAME or TEST_USER_PASSWORD in .env');
 }
 
 export const ENV = {
@@ -17,5 +15,5 @@ export const ENV = {
     email,
     username,
     password,
-  }
+  },
 };
